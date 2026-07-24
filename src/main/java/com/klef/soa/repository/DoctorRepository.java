@@ -1,10 +1,12 @@
 package com.klef.soa.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.klef.soa.entity.Doctor;
-
-public interface DoctorRepository extends JpaRepository<Doctor, Long>
-{
-
+import java.util.List;
+@Repository
+public interface DoctorRepository extends JpaRepository<Doctor, Long>{
+  // from doctor d where d.gender=?1
+List<Doctor> findByGender(String gender);
 }
